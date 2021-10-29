@@ -1,0 +1,13 @@
+$container-width: 1250px;
+$black: #111113;
+$silver: #929292;
+$red: #bd3735;
+$btn: #000000;
+$white: #ffffff;
+
+@import './base/fonts';
+@import './base/global';
+
+@import './block/header';
+@import './block/products';
+@import './block/productScreen';
