@@ -1,0 +1,54 @@
+.footer {
+	padding: 60px 0 40px 0;
+	position: relative;
+	.logo {
+		align-items: flex-start;
+	}
+	&-top {
+		display: grid;
+		grid-template-columns: 1fr 5fr;
+	}
+	&-bottom {
+		display: grid;
+		grid-template-columns: 1fr repeat(4, auto);
+		column-gap: 40px;
+		&-item,
+		a {
+			font-size: 14px;
+			line-height: 16px;
+			text-transform: capitalize;
+			color: $main-60;
+			i {
+				font-size: 16px;
+			}
+		}
+	}
+	&-nav {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr) 2fr;
+	}
+	&-list {
+		li {
+			margin: 8px 0;
+		}
+		&-title {
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 160%;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+		&-link {
+			font-size: 14px;
+			line-height: 20px;
+			text-transform: capitalize;
+			color: $main-80;
+		}
+		&-descr {
+			font-size: 12px;
+			line-height: 20px;
+			color: $main-80;
+			margin: 8px 0;
+		}
+	}
+}

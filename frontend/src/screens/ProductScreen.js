@@ -1,66 +1,106 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import Rating from '../components/Rating'
-import products from '../product'
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import Rating from '../components/Rating';
+import axios from 'axios';
 
 const ProductScreen = ({match}) => {
-  const product = products.find((p) => p._id === match.params.id)
-  const {
-    name,
-    image,
-    price: prices,
-    colors,
-    description,
-    height,
-    size,
-  } = product
-  let mainImg = image[0]
-  let price = prices.toFixed(2)
-  return (
-    <div className={`product-screen ${product}`}>
-      <div className='container'>
-        <div className='product-screen-nav'>
-          <Link to='/'>Home</Link> / <Link to='/catalog'>Catalog</Link> /
-          <span> Lingerie</span>
-        </div>
-        <div className='product-screen-wrapper'>
-          <div className='product-screen-images'>
-            <div className='product-screen-images-list'>
-              {image.map((image, index) => (
-                <div className='product-screen-image'>
-                  <img src={image} alt={name} />
-                </div>
-              ))}
-            </div>
-            <div className='product-screen-mainImg'>
-              <img src={mainImg} alt={name} />
-            </div>
-          </div>
-          <div className='product-screen-info'>
-            <div className='product-screen-title'>{name}</div>
-            <div className='product-screen-price'>${price}</div>
-            <div className='product-screen-subtitle'>Color</div>
-            <div className='product-screen-colors'>
-              {colors.map((color) => (
-                <div
-                  style={{backgroundColor: color}}
-                  className={`product-screen-color ${color}`}
-                ></div>
-              ))}
-            </div>
-            <button className='btn'>Add to bag by ${price}</button>
-            <div className='product-screen-subtitle'>Description</div>
-            <div className='product-screen-descr'>
-              {description}
-              <div>
-                Model: Height {height} m, Size: {size}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+	const [
+		{
+			_id,
+			name,
+			images,
+			countInStock,
+			price,
+			rating,
+			numReviews,
+			colors,
+			description,
+			height,
+			size,
+			materials,
+		},
+		setProduct,
+	] = useState({});
 
-export default ProductScreen
+	useEffect(() => {
+		const fetchProduct = async () => {
+			const {data} = await axios.get(`/api/products/${match.params.id}`);
+
+			setProduct(data);
+		};
+
+		fetchProduct();
+	}, [match]);
+
+	const toggleActiveClass = (e) => {
+		e.target.classList.toggle('active');
+		e.target.nextElementSibling.classList.toggle('active');
+	};
+
+	return (
+		<div className={`product-screen ${_id}`}>
+			<div className='container'>
+				<div className='product-screen-nav'>
+					<Link to='/'>Home</Link> / <Link to='/catalog'>Catalog</Link> /
+					<span> Lingerie</span>
+				</div>
+				<div className='product-screen-wrapper'>
+					<div className='product-screen-images'>
+						<div className='product-screen-images-list'></div>
+						<div className='product-screen-mainImg'>
+							{/* <img src={images} alt={name} /> */}
+						</div>
+					</div>
+					<div className='product-screen-info'>
+						<div className='product-screen-title'>{name}</div>
+						<div className='product-screen-column'>
+							<div className='product-screen-price'>${price}</div>
+							<Rating value={rating} text={`${numReviews} reviews`} />
+						</div>
+						<div className='product-screen-subtitle'>Color</div>
+						<div className='product-screen-colors'></div>
+						<div className='product-screen-subtitle'>
+							Status:{' '}
+							<span>{countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+						</div>
+
+						<button className='btn' type='button' disabled={countInStock === 0}>
+							Add to bag by ${price}
+						</button>
+						<div
+							className='product-accordion-title'
+							onClick={toggleActiveClass}
+						>
+							Description
+						</div>
+						<div className='product-accordion-descr'>{description}</div>
+						<div className='product-screen-model'>
+							Model: Height {height} m, Size: {size}
+						</div>
+						<div
+							className='product-accordion-title'
+							onClick={toggleActiveClass}
+						>
+							Materials
+						</div>
+						<div className='product-accordion-descr'>{materials}</div>
+						<div
+							className='product-accordion-title'
+							onClick={toggleActiveClass}
+						>
+							Delivery & Returns
+						</div>
+						<div className='product-accordion-descr'>
+							Вы можете оформить возврат товара в течение 7 дней, не считая дня
+							получения заказа. Правила возврата. Для всех заказов с доставкой в
+							Москву и Ростов-на-Дону, оформленных с 28 октября по 7 ноября,
+							возврат будет для вас бесплатным.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default ProductScreen;

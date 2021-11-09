@@ -1,13 +1,19 @@
-$container-width: 1250px;
-$black: #111113;
+$container-width: 1290px;
+$main-100: #111113;
+$main-80: #666666;
+$main-60: #999999;
 $silver: #929292;
+$line: #f2f2f2;
 $red: #bd3735;
 $btn: #000000;
+$btn-dis: #929292;
 $white: #ffffff;
+$transition: all 0.3s ease-out;
 
 @import './base/fonts';
 @import './base/global';
 
 @import './block/header';
+@import './block/footer';
 @import './block/products';
 @import './block/productScreen';
