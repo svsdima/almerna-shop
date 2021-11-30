@@ -11,7 +11,7 @@ const products = [
 		description:
 			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
 		category: 'body',
-		height: '1,72',
+		height: 1.72,
 		size: 'S',
 		price: 69.0,
 		colorsName: ['Black, Silver'],
@@ -29,7 +29,7 @@ const products = [
 		description:
 			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
 		category: 'body',
-		height: '1,72 м',
+		height: 1.72,
 		size: 'S',
 		price: 60.0,
 		colors: ['#111113', '#929292'],
@@ -44,7 +44,7 @@ const products = [
 		description:
 			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
 		category: 'body',
-		height: '1,72 м',
+		height: 1.72,
 		size: 'S',
 		price: 72,
 		colors: ['#111113', '#929292'],
@@ -59,7 +59,7 @@ const products = [
 		description:
 			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
 		category: 'body',
-		height: '1,72 м',
+		height: 1.72,
 		size: 'S',
 		price: 69.0,
 		colors: ['#111113', '#929292'],
@@ -74,7 +74,7 @@ const products = [
 		description:
 			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
 		category: 'body',
-		height: '1,72 м',
+		height: 1.72,
 		size: 'S',
 		price: 69.0,
 		colors: ['#111113', '#929292'],
@@ -89,7 +89,7 @@ const products = [
 		description:
 			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
 		category: 'body',
-		height: '1,72 м',
+		height: 1.72,
 		size: 'S',
 		price: 69.0,
 		colors: ['#111113', '#929292'],
