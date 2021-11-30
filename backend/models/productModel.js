@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
-const reviewSchema = mongoose.Schema(
+const reviewsSchema = mongoose.Schema(
 	{
-		name: {tipe: String, required: true},
-		rating: {tipe: Number, required: true},
-		comment: {tipe: String, required: true},
+		name: {type: String, required: true},
+		rating: {type: Number, required: true},
+		comment: {type: String, required: true},
 	},
 	{
 		timestamps: true,
@@ -22,14 +22,6 @@ const productSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		image: {
-			type: String,
-			required: true,
-		},
-		brand: {
-			type: String,
-			required: true,
-		},
 		category: {
 			type: String,
 			required: true,
@@ -38,34 +30,28 @@ const productSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		material: {
-			type: String,
-			required: true,
-		},
-		colors: {
-			type: String,
-			required: true,
-		},
 		size: {
 			type: String,
 			required: true,
 		},
-		colors: {
+		materials: {
 			type: String,
 			required: true,
 		},
-		reviews: [reviewSchema],
+		images: {
+			type: Array,
+			required: true,
+		},
+		colors: {
+			type: Array,
+			required: true,
+		},
+		reviews: [reviewsSchema],
 		height: {
 			type: Number,
 			required: true,
-			default: 0,
 		},
 		rating: {
-			type: Number,
-			required: true,
-			default: 0,
-		},
-		numReviews: {
 			type: Number,
 			required: true,
 			default: 0,
@@ -79,6 +65,16 @@ const productSchema = mongoose.Schema(
 			type: Number,
 			required: true,
 			default: 0,
+		},
+		numReviews: {
+			type: Number,
+			required: true,
+			default: 0,
+		},
+		new: {
+			type: Boolean,
+			required: true,
+			default: false,
 		},
 	},
 	{
