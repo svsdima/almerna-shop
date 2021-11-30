@@ -1,6 +1,5 @@
 const products = [
 	{
-		_id: '1',
 		name: 'Stefi Push Up BH schwarz',
 		images: [
 			'/img/models/1/1.jpg',
@@ -23,7 +22,6 @@ const products = [
 		new: true,
 	},
 	{
-		_id: '2',
 		name: 'Stefi Push Up BH schwarz',
 		images: ['/img/models/2/1.jpg'],
 		description:
@@ -38,7 +36,6 @@ const products = [
 		numReviews: 4,
 	},
 	{
-		_id: '3',
 		name: 'Stefi Push Up BH schwarz',
 		images: ['/img/models/3/1.jpg'],
 		description:
@@ -53,7 +50,6 @@ const products = [
 		numReviews: 4,
 	},
 	{
-		_id: '4',
 		name: 'Stefi Push Up BH schwarz',
 		images: ['/img/models/4/1.jpg'],
 		description:
@@ -68,7 +64,6 @@ const products = [
 		numReviews: 4,
 	},
 	{
-		_id: '5',
 		name: 'Stefi Push Up BH schwarz',
 		images: ['/img/models/5/1.jpg'],
 		description:
@@ -83,7 +78,6 @@ const products = [
 		numReviews: 4,
 	},
 	{
-		_id: '6',
 		name: 'Stefi Push Up BH schwarz',
 		images: ['/img/models/6/1.jpg'],
 		description:
