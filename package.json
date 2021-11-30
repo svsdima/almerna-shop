@@ -24,7 +24,8 @@
 	"homepage": "https://github.com/svsdima/almerna-shop#readme",
 	"dependencies": {
 		"dotenv": "^10.0.0",
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"express-async-handler": "^1.2.0"
 	},
 	"devDependencies": {
 		"bcryptjs": "^2.4.3",
