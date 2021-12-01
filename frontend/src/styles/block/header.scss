@@ -1,13 +1,19 @@
 .header {
-  padding-bottom: 20px;
-  &-wrapper {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-  }
+	padding-bottom: 20px;
+	&-wrapper {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+	}
 }
 .nav {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: 1fr;
+	&-link {
+		font-size: 16px;
+		line-height: 160%;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
 }

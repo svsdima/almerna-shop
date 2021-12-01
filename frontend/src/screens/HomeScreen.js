@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Product from '../components/Product';
+import Message from '../components/Message';
+import Loader from '../components/Loader';
 import {listProducts} from '../actions/productActions';
 
 const HomeScreen = () => {
@@ -20,13 +22,13 @@ const HomeScreen = () => {
 					Shop Our <span>Trending</span> Products
 				</h1>
 				{loading ? (
-					<h2>Loading...</h2>
+					<Loader />
 				) : error ? (
-					<h3>{error}</h3>
+					<Message>{error}</Message>
 				) : (
 					<div className='product-list'>
 						{products.map((product) => (
-							<Product key={product._id} product={product} />
+							<Product product={product} />
 						))}
 					</div>
 				)}
