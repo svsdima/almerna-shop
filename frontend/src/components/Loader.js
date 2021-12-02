@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loader = () => {
 	return (
-		<div class='spinner'>
+		<div className='spinner'>
 			Loading
 			<span></span>
 		</div>
