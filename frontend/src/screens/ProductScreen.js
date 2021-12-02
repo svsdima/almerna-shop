@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import Rating from '../components/Rating';
@@ -6,24 +6,9 @@ import {listProductDetails} from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 
-const ProductScreen = ({match}) => {
-	// const [
-	// 	{
-	// 		_id,
-	// 		name,
-	// 		images,
-	// 		countInStock,
-	// 		price,
-	// 		rating,
-	// 		numReviews,
-	// 		colors,
-	// 		description,
-	// 		height,
-	// 		size,
-	// 		materials,
-	// 	},
-	// 	setProduct,
-	// ] = useState({});
+const ProductScreen = ({history, match}) => {
+	const [qty, setQty] = useState(0);
+
 	const dispatch = useDispatch();
 
 	const productDetails = useSelector((state) => state.productDetails);
@@ -32,6 +17,10 @@ const ProductScreen = ({match}) => {
 	useEffect(() => {
 		dispatch(listProductDetails(match.params.id));
 	}, [dispatch]);
+
+	const addToCartHandler = () => {
+		history.push(`/cart/${match.params.id}?qty=${qty}`);
+	};
 
 	const toggleActiveClass = (e) => {
 		e.target.classList.toggle('active');
@@ -64,11 +53,30 @@ const ProductScreen = ({match}) => {
 							</div>
 							<div className='product-screen-subtitle'>Color</div>
 							<div className='product-screen-colors'></div>
-							<div className='product-screen-subtitle'>
-								Status: <span>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+							<div className='product-screen-column'>
+								<div className='product-screen-subtitle'>
+									Status: <span>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+								</div>
+								{product.countInStock > 0 && (
+									<select
+										className='product-screen-qty'
+										value={qty}
+										onChange={(e) => setQty(e.target.value)}
+									>
+										{[...Array(product.countInStock).keys()].map((x) => (
+											<option key={x + 1} value={x + 1}>
+												{x + 1}
+											</option>
+										))}
+									</select>
+								)}
 							</div>
-
-							<button className='btn' type='button' disabled={product.countInStock === 0}>
+							<button
+								className='btn'
+								type='button'
+								disabled={product.countInStock === 0}
+								onClick={addToCartHandler}
+							>
 								Add to bag by ${product.price}
 							</button>
 							<div className='product-accordion-title' onClick={toggleActiveClass}>
