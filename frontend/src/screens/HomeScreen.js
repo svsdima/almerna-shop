@@ -16,7 +16,7 @@ const HomeScreen = () => {
 	}, [dispatch]);
 
 	return (
-		<div className='home-screen'>
+		<section className='home-screen'>
 			<div className='container'>
 				<h1 className='title'>
 					Shop Our <span>Trending</span> Products
@@ -33,7 +33,7 @@ const HomeScreen = () => {
 					</div>
 				)}
 			</div>
-		</div>
+		</section>
 	);
 };
 

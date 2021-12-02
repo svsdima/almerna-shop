@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
-import {Route} from 'react-router';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './styles/app.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,7 +11,7 @@ const App = () => {
 	return (
 		<Router>
 			<Header />
-			<main>
+			<main className='main'>
 				<Route path='/' component={HomeScreen} exact />
 				<Route path='/product/:id' component={ProductScreen} />
 				<Route path='/cart/:id?' component={CartScreen} />

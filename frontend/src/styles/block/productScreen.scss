@@ -1,4 +1,5 @@
 .product-screen {
+	flex: 1 1 auto;
 	&-wrapper {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
