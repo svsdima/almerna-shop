@@ -17,6 +17,14 @@ const orderSchema = mongoose.Schema(
 					type: Number,
 					required: true,
 				},
+				bandSize: {
+					type: Number,
+					required: true,
+				},
+				color: {
+					type: String,
+					required: true,
+				},
 				image: {
 					type: String,
 					required: true,

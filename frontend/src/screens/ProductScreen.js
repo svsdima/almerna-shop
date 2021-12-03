@@ -21,7 +21,7 @@ const ProductScreen = ({history, match}) => {
 	}, [dispatch, match]);
 
 	const addToCartHandler = () => {
-		history.push(`/cart/${match.params.id}?color=${color}?qty=${qty}`);
+		history.push(`/cart/${match.params.id}?qty=${qty}?size=${bandSize}?color=${color}`);
 	};
 
 	const toggleActiveClass = (e) => {
@@ -93,7 +93,7 @@ const ProductScreen = ({history, match}) => {
 														<button
 															className='product-screen-band-size'
 															value={Size.size}
-															disabled={Size.quantity === 0}
+															disabled={Size.countInStock === false}
 															onClick={() => setBandSize(Number(Size.size))}
 														>
 															<span>{Size.size}</span>

@@ -20,27 +20,27 @@ const products = [
 		bandSizes: [
 			{
 				size: 30,
-				quantity: 0,
+				countInStock: true,
 			},
 			{
 				size: 32,
-				quantity: 2,
+				countInStock: true,
 			},
 			{
 				size: 34,
-				quantity: 0,
+				countInStock: false,
 			},
 			{
 				size: 36,
-				quantity: 0,
+				countInStock: false,
 			},
 			{
 				size: 38,
-				quantity: 2,
+				countInStock: true,
 			},
 			{
 				size: 40,
-				quantity: 1,
+				countInStock: false,
 			},
 		],
 		materials: '96% полиами, 4% эластан',
@@ -64,31 +64,31 @@ const products = [
 		bandSizes: [
 			{
 				size: 30,
-				quantity: 2,
+				countInStock: true,
 			},
 			{
 				size: 32,
-				quantity: 0,
+				countInStock: false,
 			},
 			{
 				size: 34,
-				quantity: 13,
+				countInStock: true,
 			},
 			{
 				size: 36,
-				quantity: 0,
+				countInStock: false,
 			},
 			{
 				size: 38,
-				quantity: 3,
+				countInStock: true,
 			},
 			{
 				size: 40,
-				quantity: 5,
+				countInStock: true,
 			},
 		],
 		materials: '96% полиами, 4% эластан',
-		countInStock: 0,
+		countInStock: false,
 		rating: 4.5,
 		numReviews: 4,
 		new: true,
@@ -109,27 +109,27 @@ const products = [
 		bandSizes: [
 			{
 				size: 30,
-				quantity: 8,
+				countInStock: true,
 			},
 			{
 				size: 32,
-				quantity: 4,
+				countInStock: true,
 			},
 			{
 				size: 34,
-				quantity: 6,
+				countInStock: true,
 			},
 			{
 				size: 36,
-				quantity: 0,
+				countInStock: false,
 			},
 			{
 				size: 38,
-				quantity: 4,
+				countInStock: true,
 			},
 			{
 				size: 40,
-				quantity: 0,
+				countInStock: false,
 			},
 		],
 		materials: '96% полиами, 4% эластан',
@@ -153,27 +153,27 @@ const products = [
 		bandSizes: [
 			{
 				size: 30,
-				quantity: 7,
+				countInStock: true,
 			},
 			{
 				size: 32,
-				quantity: 5,
+				countInStock: true,
 			},
 			{
 				size: 34,
-				quantity: 0,
+				countInStock: false,
 			},
 			{
 				size: 36,
-				quantity: 3,
+				countInStock: true,
 			},
 			{
 				size: 38,
-				quantity: 0,
+				countInStock: false,
 			},
 			{
 				size: 40,
-				quantity: 8,
+				countInStock: true,
 			},
 		],
 		materials: '96% полиами, 4% эластан',
@@ -198,27 +198,27 @@ const products = [
 		bandSizes: [
 			{
 				size: 30,
-				quantity: 5,
+				countInStock: true,
 			},
 			{
 				size: 32,
-				quantity: 2,
+				countInStock: true,
 			},
 			{
 				size: 34,
-				quantity: 7,
+				countInStock: true,
 			},
 			{
 				size: 36,
-				quantity: 8,
+				countInStock: true,
 			},
 			{
 				size: 38,
-				quantity: 2,
+				countInStock: true,
 			},
 			{
 				size: 40,
-				quantity: 1,
+				countInStock: true,
 			},
 		],
 		materials: '96% полиами, 4% эластан',
@@ -242,27 +242,27 @@ const products = [
 		bandSizes: [
 			{
 				size: 30,
-				quantity: 4,
+				countInStock: true,
 			},
 			{
 				size: 32,
-				quantity: 9,
+				countInStock: true,
 			},
 			{
 				size: 34,
-				quantity: 7,
+				countInStock: true,
 			},
 			{
 				size: 36,
-				quantity: 13,
+				countInStock: true,
 			},
 			{
 				size: 38,
-				quantity: 3,
+				countInStock: true,
 			},
 			{
 				size: 40,
-				quantity: 5,
+				countInStock: true,
 			},
 		],
 		materials: '96% полиами, 4% эластан',
