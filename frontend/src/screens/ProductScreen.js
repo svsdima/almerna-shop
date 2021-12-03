@@ -9,6 +9,7 @@ import Message from '../components/Message';
 const ProductScreen = ({history, match}) => {
 	const [qty, setQty] = useState(1);
 	const [color, setColor] = useState('');
+	const [bandSize, setBandSize] = useState('');
 
 	const dispatch = useDispatch();
 
@@ -42,60 +43,114 @@ const ProductScreen = ({history, match}) => {
 						</div>
 						<div className={product._id}>
 							<div className='product-screen-wrapper'>
-								<div className='product-screen-images'>
-									<div className='product-screen-images-list'></div>
-									<div className='product-screen-mainImg'>
-										<img src={product.mainImage} alt={product.name} />
+								<div className='product-screen-up'>
+									<div className='product-screen-images'>
+										<div className='product-screen-images-list'></div>
+										<div className='product-screen-mainImg'>
+											<img src={product.mainImage} alt={product.name} />
+										</div>
+									</div>
+									<div className='product-screen-info'>
+										<div className='product-screen-title'>{product.name}</div>
+										<div className='product-screen-column'>
+											<div className='product-screen-prices'>
+												<span className='product-screen-price'>
+													&#8364;{product.price ? product.price.toFixed(2) : ''}
+												</span>
+												<span className='product-screen-old-price'>
+													&#8364;{product.oldPrice ? product.oldPrice.toFixed(2) : ''}
+												</span>
+											</div>
+											<Rating value={product.rating} text={`${product.numReviews} reviews`} />
+										</div>
+										<div className='product-screen-subtitle'>
+											Color: <span>{color}</span>
+										</div>
+										<div className='product-screen-colors'>
+											{product.colors
+												? product.colors.map((color) => (
+														<div
+															className='product-screen-color'
+															style={{backgroundColor: `${color}`}}
+															value={color}
+															onClick={() => setColor(String(color))}
+														></div>
+												  ))
+												: ''}
+										</div>
+										<div className='product-screen-column'>
+											<div className='product-screen-subtitle'>
+												Band Size: <span>{bandSize}</span>
+											</div>
+											<Link className='product-screen-guide' to='#'>
+												Size Guide
+											</Link>
+										</div>
+
+										<div className='product-screen-band-sizes'>
+											{product.bandSizes
+												? product.bandSizes.map((Size) => (
+														<button
+															className='product-screen-band-size'
+															value={Size.size}
+															disabled={Size.quantity === 0}
+															onClick={() => setBandSize(Number(Size.size))}
+														>
+															<span>{Size.size}</span>
+														</button>
+												  ))
+												: ''}
+										</div>
+										<div className='product-screen-column'>
+											<div className='product-screen-subtitle'>
+												Status:{' '}
+												<span>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+											</div>
+											{product.countInStock > 0 && (
+												<select
+													className='product-screen-qty'
+													value={qty}
+													onChange={(e) => setQty(e.target.value)}
+												>
+													{[...Array(product.countInStock).keys()].map((x) => (
+														<option key={x + 1} value={x + 1}>
+															{x + 1}
+														</option>
+													))}
+												</select>
+											)}
+										</div>
+										<button
+											className='btn'
+											type='button'
+											disabled={product.countInStock === 0 || color === '' || bandSize === ''}
+											onClick={addToCartHandler}
+										>
+											Add to bag by &#8364;{(product.price * qty).toFixed(2)}
+										</button>
+										<div className='product-screen-delivery'>
+											Доставка 1-2 дня <Link to='#'>Изменить регион</Link>
+										</div>
+										<div className='product-screen-payment'>
+											<div className='product-screen-payment-img'>
+												<img src='/img/payment/paypal.png' alt='paypal' />
+											</div>
+											<div className='product-screen-payment-img'>
+												<img src='/img/payment/visa.png' alt='visa' />
+											</div>
+											<div className='product-screen-payment-img'>
+												<img src='/img/payment/mastercard.png' alt='mastercard' />
+											</div>
+											<div className='product-screen-payment-img'>
+												<img src='/img/payment/klarna.png' alt='klarna' />
+											</div>
+											<div className='product-screen-payment-img'>
+												<img src='/img/payment/vorkasse.png' alt='vorkasse' />
+											</div>
+										</div>
 									</div>
 								</div>
-								<div className='product-screen-info'>
-									<div className='product-screen-title'>{product.name}</div>
-									<div className='product-screen-column'>
-										<div className='product-screen-price'>${product.price}</div>
-										<Rating value={product.rating} text={`${product.numReviews} reviews`} />
-									</div>
-									<div className='product-screen-subtitle'>
-										Color: <span>{color}</span>
-									</div>
-									<div className='product-screen-colors'>
-										{product.colors
-											? product.colors.map((color) => (
-													<div
-														className='product-screen-color'
-														style={{backgroundColor: `${color}`}}
-														value={color}
-														onClick={(e) => setColor(String(color))}
-													></div>
-											  ))
-											: ''}
-									</div>
-
-									<div className='product-screen-column'>
-										<div className='product-screen-subtitle'>
-											Status: <span>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
-										</div>
-										{product.countInStock > 0 && (
-											<select
-												className='product-screen-qty'
-												value={qty}
-												onChange={(e) => setQty(e.target.value)}
-											>
-												{[...Array(product.countInStock).keys()].map((x) => (
-													<option key={x + 1} value={x + 1}>
-														{x + 1}
-													</option>
-												))}
-											</select>
-										)}
-									</div>
-									<button
-										className='btn'
-										type='button'
-										disabled={product.countInStock === 0 || color === ''}
-										onClick={addToCartHandler}
-									>
-										Add to bag by ${product.price * qty}
-									</button>
+								<div className='product-screen-down'>
 									<div className='product-accordion-title' onClick={toggleActiveClass}>
 										Description
 									</div>

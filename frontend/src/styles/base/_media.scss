@@ -1,0 +1,19 @@
+@media (hover: hover) {
+	.product-screen-band-size {
+		&:hover:enabled {
+			background-color: $main-100;
+			border: 1px solid $white;
+			span {
+				color: $white;
+			}
+		}
+	}
+	.product-screen-color {
+		&:hover {
+			&::before {
+				width: 110%;
+				height: 110%;
+			}
+		}
+	}
+}

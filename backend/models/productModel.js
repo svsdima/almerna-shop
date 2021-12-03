@@ -42,6 +42,10 @@ const productSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		bandSizes: {
+			type: Array,
+			required: true,
+		},
 		materials: {
 			type: String,
 			required: true,
@@ -67,6 +71,10 @@ const productSchema = mongoose.Schema(
 		price: {
 			type: Number,
 			required: true,
+			default: 0,
+		},
+		oldPrice: {
+			type: Number,
 			default: 0,
 		},
 		countInStock: {

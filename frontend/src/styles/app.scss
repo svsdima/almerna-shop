@@ -2,13 +2,21 @@ $container-width: 1290px;
 $main-100: #111113;
 $main-80: #666666;
 $main-60: #999999;
+$main-40: #cccccc;
+$main-30: #e5e5e5;
+$main-20: #f2f2f2;
+$main-10: #fcfcfc;
+$green: #76c174;
+$error: #f44e4a;
 $silver: #929292;
+$silver-80: #a7a7a7;
 $line: #f2f2f2;
 $red: #bd3735;
 $btn: #000000;
 $btn-dis: #929292;
 $white: #ffffff;
-$transition: all 0.3s ease-out;
+$black-white: linear-gradient(0, $main-100, $main-40);
+$transition: all 0.3s ease;
 
 @import './base/fonts';
 @import './base/global';
@@ -19,3 +27,5 @@ $transition: all 0.3s ease-out;
 @import './block/products';
 @import './block/productScreen';
 @import './block/cartScreen';
+
+@import './base/media';
