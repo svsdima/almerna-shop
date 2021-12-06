@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Message from '../components/Message';
-import {addToCart} from '../actions/cartActions';
+import {addToCart, removeFromCart} from '../actions/cartActions';
 import {Link} from 'react-router-dom';
 
 const CartScreen = ({match, location, history}) => {
@@ -28,12 +28,13 @@ const CartScreen = ({match, location, history}) => {
 	}, [dispatch, productId, qty, color, bandSize]);
 
 	const removeFromCartHandler = (id) => {
-		console.log('remove');
+		dispatch(removeFromCart(id));
 	};
 
 	const checkoutHandler = () => {
-		console.log('checkout');
+		history.push('/login?redirect=shipping');
 	};
+	console.log(cartItems);
 
 	return (
 		<section className='cart-screen'>
@@ -71,7 +72,16 @@ const CartScreen = ({match, location, history}) => {
 											<select
 												className='product-screen-qty'
 												value={item.qty}
-												onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}
+												onChange={(e) =>
+													dispatch(
+														addToCart(
+															item.product,
+															Number(e.target.value),
+															item.color,
+															item.bandSize
+														)
+													)
+												}
 											>
 												{[...Array(item.countInStock).keys()].map((x) => (
 													<option key={x + 1} value={x + 1}>

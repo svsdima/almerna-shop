@@ -64,7 +64,7 @@ const ProductScreen = ({history, match}) => {
 											<Rating value={product.rating} text={`${product.numReviews} reviews`} />
 										</div>
 										<div className='product-screen-subtitle'>
-											Color: <span>{color}</span>
+											Color: <span>{color === '' ? 'Select color' : color}</span>
 										</div>
 										<div className='product-screen-colors'>
 											{product.colors
@@ -80,7 +80,7 @@ const ProductScreen = ({history, match}) => {
 										</div>
 										<div className='product-screen-column'>
 											<div className='product-screen-subtitle'>
-												Band Size: <span>{bandSize}</span>
+												Band Size: <span>{bandSize === '' ? 'Select size' : bandSize}</span>
 											</div>
 											<Link className='product-screen-guide' to='#'>
 												Size Guide
@@ -92,7 +92,7 @@ const ProductScreen = ({history, match}) => {
 												? product.bandSizes.map((Size) => (
 														<button
 															className='product-screen-band-size'
-															value={Size.size}
+															value={bandSize}
 															disabled={Size.countInStock === false}
 															onClick={() => setBandSize(Number(Size.size))}
 														>
