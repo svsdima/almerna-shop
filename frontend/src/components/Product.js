@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Rating from './Rating';
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
 	return (
 		<div className='product-item'>
 			<div className='product-card'>

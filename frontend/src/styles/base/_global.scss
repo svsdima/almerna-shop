@@ -90,3 +90,33 @@ h2 {
 	line-height: 160%;
 	letter-spacing: 0.08em;
 }
+.form {
+	position: relative;
+	margin: 40px 0;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	gap: 20px;
+	&-item {
+		position: relative;
+		max-height: 100px;
+	}
+	&-input {
+		position: relative;
+		height: 100%;
+		min-width: 310px;
+		padding: 20px 15px 10px 15px;
+		font-size: 16px;
+		line-height: 24px;
+	}
+	&-label {
+		position: absolute;
+		top: 5px;
+		left: 15px;
+		z-index: 1;
+		user-select: none;
+		font-size: 12px;
+		line-height: 10px;
+		color: $silver-60;
+	}
+}

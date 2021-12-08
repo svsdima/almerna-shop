@@ -8,9 +8,10 @@ $main-20: #f2f2f2;
 $main-10: #fcfcfc;
 $green: #76c174;
 $error: #f44e4a;
-$silver: #929292;
+$silver-100: #929292;
 $silver-80: #a7a7a7;
 $silver-70: #b3b3b3;
+$silver-60: #b2b2b2;
 $line: #f2f2f2;
 $red: #bd3735;
 $btn: #000000;
@@ -28,5 +29,6 @@ $transition: all 0.3s ease;
 @import './block/products';
 @import './block/productScreen';
 @import './block/cartScreen';
+@import './block/loginScreen';
 
 @import './base/media';

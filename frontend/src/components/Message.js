@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Message = ({children}) => {
+const Message = ({ children }) => {
 	return <div className='message'>{children}</div>;
 };
 

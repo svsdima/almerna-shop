@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Rating from '../components/Rating';
-import {listProductDetails} from '../actions/productActions';
+import { listProductDetails } from '../actions/productActions';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 
-const ProductScreen = ({history, match}) => {
+const ProductScreen = ({ history, match }) => {
 	const [qty, setQty] = useState(1);
 	const [color, setColor] = useState('');
 	const [bandSize, setBandSize] = useState('');
@@ -14,7 +14,7 @@ const ProductScreen = ({history, match}) => {
 	const dispatch = useDispatch();
 
 	const productDetails = useSelector((state) => state.productDetails);
-	const {loading, error, product} = productDetails;
+	const { loading, error, product } = productDetails;
 
 	useEffect(() => {
 		dispatch(listProductDetails(match.params.id));
@@ -71,7 +71,7 @@ const ProductScreen = ({history, match}) => {
 												? product.colors.map((color) => (
 														<div
 															className='product-screen-color'
-															style={{backgroundColor: `${color}`}}
+															style={{ backgroundColor: `${color}` }}
 															value={color}
 															onClick={() => setColor(String(color))}
 															key={color}

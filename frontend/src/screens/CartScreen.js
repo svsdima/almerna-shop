@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
-import {addToCart, removeFromCart} from '../actions/cartActions';
-import {Link} from 'react-router-dom';
+import { addToCart, removeFromCart } from '../actions/cartActions';
+import { Link } from 'react-router-dom';
 
-const CartScreen = ({match, location, history}) => {
+const CartScreen = ({ match, location, history }) => {
 	const productId = match.params.id;
 
 	const qty = location.search ? Number(location.search.split('=')[1].replace(/[^0-9]/g, '')) : 1;
@@ -19,7 +19,7 @@ const CartScreen = ({match, location, history}) => {
 
 	const cart = useSelector((state) => state.cart);
 
-	const {cartItems} = cart;
+	const { cartItems } = cart;
 
 	useEffect(() => {
 		if (productId) {

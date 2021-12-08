@@ -1,0 +1,18 @@
+.login-screen {
+	padding: 70px 0;
+	&-wrapper {
+		display: grid;
+		align-items: center;
+		justify-items: center;
+	}
+	&-redirect {
+		font-size: 16px;
+		line-height: 20px;
+		color: $silver-100;
+		a {
+			font-size: 16px;
+			line-height: 20px;
+			color: $main-100;
+		}
+	}
+}

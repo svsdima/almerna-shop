@@ -1,14 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Footer = () => {
 	return (
 		<footer className='footer'>
 			<div className='container'>
 				<div className='footer-top'>
-					<Link to='/' className='logo'>
-						<img src='/img/logo-2.png' alt='logo' />
-					</Link>
+					<Logo />
 					<ul className='footer-nav'>
 						{/* List */}
 						<div className='footer-list'>
@@ -81,8 +80,8 @@ const Footer = () => {
 						<div className='footer-list'>
 							<div className='footer-list-title'>Join Our Mailing List</div>
 							<div className='footer-list-descr'>
-								By signing up you agree with our Terms & Conditions and Privacy
-								Policy. To opt out, click Unsubscribe in our emails.
+								By signing up you agree with our Terms & Conditions and Privacy Policy. To opt out,
+								click Unsubscribe in our emails.
 							</div>
 						</div>
 					</ul>
