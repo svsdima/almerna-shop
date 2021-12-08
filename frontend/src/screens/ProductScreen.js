@@ -41,7 +41,7 @@ const ProductScreen = ({history, match}) => {
 						<div className='product-screen-nav'>
 							<Link to='/'>Home</Link> / <Link to='/catalog'>Catalog</Link> /<span> Lingerie</span>
 						</div>
-						<div className={product._id}>
+						<div key={product._id}>
 							<div className='product-screen-wrapper'>
 								<div className='product-screen-up'>
 									<div className='product-screen-images'>
@@ -74,6 +74,7 @@ const ProductScreen = ({history, match}) => {
 															style={{backgroundColor: `${color}`}}
 															value={color}
 															onClick={() => setColor(String(color))}
+															key={color}
 														></div>
 												  ))
 												: ''}
@@ -95,6 +96,7 @@ const ProductScreen = ({history, match}) => {
 															value={bandSize}
 															disabled={Size.countInStock === false}
 															onClick={() => setBandSize(Number(Size.size))}
+															key={Size.size}
 														>
 															<span>{Size.size}</span>
 														</button>

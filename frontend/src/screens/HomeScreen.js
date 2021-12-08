@@ -28,7 +28,7 @@ const HomeScreen = () => {
 				) : (
 					<div className='product-list'>
 						{products.map((product) => (
-							<Product product={product} />
+							<Product key={product._id} product={product} />
 						))}
 					</div>
 				)}
