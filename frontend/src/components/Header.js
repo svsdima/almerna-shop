@@ -1,8 +1,18 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
+import { logout } from '../actions/userActions';
 
 const Header = () => {
+	const dispatch = useDispatch();
+
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userInfo } = userLogin;
+
+	const logoutHandler = () => {
+		dispatch(logout());
+	};
+
 	return (
 		<header className='header'>
 			<div className='header-wrapper'>
@@ -52,11 +62,37 @@ const Header = () => {
 							<i className='far fa-heart'></i>
 						</Link>
 					</li>
-					<li>
-						<Link to='/login' className='nav-link'>
-							<i className='far fa-user'></i>
-						</Link>
-					</li>
+					{userInfo ? (
+						<li className='nav-user' title={userInfo.name} id='username'>
+							<div
+								className='nav-user-img'
+								onClick={(e) =>
+									e.target.parentElement.nextElementSibling.classList.toggle('active')
+								}
+							>
+								<img src={userInfo.img} alt={userInfo.name} />
+							</div>
+							<ul className='nav-user-items'>
+								<li className='nav-user-item'>
+									<Link to='/profile'>
+										<i class='far fa-id-badge'></i>
+									</Link>
+								</li>
+								<li className='nav-user-item'>
+									<Link to='/' onClick={logoutHandler}>
+										<i class='fas fa-sign-out-alt'></i>
+									</Link>
+								</li>
+							</ul>
+						</li>
+					) : (
+						<li>
+							<Link to='/login' className='nav-link'>
+								<i className='far fa-user'></i>
+							</Link>
+						</li>
+					)}
+
 					<li>
 						<Link to='/cart' className='nav-link'>
 							<i className='fas fa-shopping-cart'></i>
