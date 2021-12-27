@@ -18,7 +18,6 @@ const userSchema = mongoose.Schema(
 		},
 		img: {
 			type: String,
-			required: true,
 			default: '/img/avatar.png',
 		},
 		isAdmin: {
