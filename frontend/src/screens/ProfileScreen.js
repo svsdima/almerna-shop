@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { getUserDetails } from '../actions/userActions';
+import { getUserDetails, updateUserProfile } from '../actions/userActions';
 import Logo from '../components/Logo';
 
 const ProfileScreen = ({ location, history }) => {
@@ -15,12 +15,13 @@ const ProfileScreen = ({ location, history }) => {
 	const dispatch = useDispatch();
 
 	const userDetails = useSelector((state) => state.userDetails);
-
 	const { loading, error, user } = userDetails;
 
 	const userLogin = useSelector((state) => state.userLogin);
-
 	const { userInfo } = userLogin;
+
+	const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+	const { success } = userUpdateProfile;
 
 	useEffect(() => {
 		if (!userInfo) {
@@ -41,7 +42,7 @@ const ProfileScreen = ({ location, history }) => {
 		if (password !== confirmPassword) {
 			setMessage('Password do not match');
 		} else {
-			// DISPATCH UPDATE PROFILE
+			dispatch(updateUserProfile({ id: user._id, name, email, password }));
 		}
 	};
 
@@ -53,6 +54,7 @@ const ProfileScreen = ({ location, history }) => {
 					<h1 className='title'>My Details</h1>
 					{message && <Message>{message}</Message>}
 					{error && <Message>{error}</Message>}
+					{success && <div className='message green'>Profile Updated</div>}
 					{loading && <Loader />}
 					<form className='form' onSubmit={submitHandler}>
 						<div className='form-item'>

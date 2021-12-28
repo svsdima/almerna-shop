@@ -89,6 +89,9 @@ h2 {
 	font-size: 16px;
 	line-height: 160%;
 	letter-spacing: 0.08em;
+	&.green {
+		background-color: green;
+	}
 }
 .form {
 	position: relative;
