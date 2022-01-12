@@ -123,3 +123,11 @@ h2 {
 		color: $silver-60;
 	}
 }
+.checkout-steps {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	justify-items: center;
+	span {
+		color: $main-60;
+	}
+}

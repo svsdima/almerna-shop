@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveShippingAdress } from '../actions/cartActions';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 const ShippingScreen = ({ history }) => {
 	const cart = useSelector((state) => state.cart);
@@ -21,6 +22,7 @@ const ShippingScreen = ({ history }) => {
 
 	return (
 		<div>
+			<CheckoutSteps step1 step2 />
 			<h1 className='title'>Shipping</h1>
 			<form className='form' onSubmit={submitHandler}>
 				<div className='form-item'>
