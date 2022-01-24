@@ -11,7 +11,6 @@ const PaymentScreen = ({ history }) => {
 		history.push('/shipping');
 	}
 
-	const [checked, setChecked] = useState(true);
 	const [paymentMethod, setPaymentMethod] = useState('PayPal');
 
 	const dispatch = useDispatch();
@@ -36,6 +35,7 @@ const PaymentScreen = ({ history }) => {
 							name='paymentMethod'
 							value='PayPal'
 							onChange={(e) => setPaymentMethod(e.target.value)}
+							checked
 						/>
 						<label
 							htmlFor='formAgreement'
@@ -66,6 +66,7 @@ const PaymentScreen = ({ history }) => {
 							Stripe
 						</label>
 					</div> */}
+
 					<button className='btn' type='submit'>
 						Continue
 					</button>

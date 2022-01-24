@@ -24,7 +24,7 @@ export const addToCart = (id, qty, color, bandSize) => async (dispatch, getState
 		},
 	});
 
-	localStorage.setItem('cartItemsAlmerna', JSON.stringify(getState().cart.cartItems));
+	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
 
 export const removeFromCart = (id) => (dispatch, getState) => {
@@ -33,7 +33,7 @@ export const removeFromCart = (id) => (dispatch, getState) => {
 		payload: id,
 	});
 
-	localStorage.setItem('cartItemsAlmerna', JSON.stringify(getState().cart.cartItems));
+	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
 
 export const saveShippingAdress = (data) => (dispatch) => {
@@ -42,7 +42,7 @@ export const saveShippingAdress = (data) => (dispatch) => {
 		payload: data,
 	});
 
-	localStorage.setItem('shippingAddressAlmerna', JSON.stringify(data));
+	localStorage.setItem('shippingAddress', JSON.stringify(data));
 };
 
 export const savePaymentMethod = (data) => (dispatch) => {
@@ -51,5 +51,5 @@ export const savePaymentMethod = (data) => (dispatch) => {
 		payload: data,
 	});
 
-	localStorage.setItem('paymentMethodAlmerna', JSON.stringify(data));
+	localStorage.setItem('paymentMethod', JSON.stringify(data));
 };
