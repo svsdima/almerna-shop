@@ -1,9 +1,11 @@
-.login-screen {
+.profile-screen {
 	padding: 70px 0;
 	&-wrapper {
+		padding-top: 100px;
 		display: grid;
-		align-items: center;
-		justify-items: center;
+		grid-template-columns: 1fr 3fr;
+		align-items: flex-start;
+		justify-items: end;
 	}
 	&-redirect {
 		font-size: 16px;
@@ -14,5 +16,8 @@
 			line-height: 20px;
 			color: $main-100;
 		}
+	}
+	table {
+		width: 100%;
 	}
 }

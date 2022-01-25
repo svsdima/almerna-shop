@@ -11,6 +11,7 @@ const Header = () => {
 
 	const logoutHandler = () => {
 		dispatch(logout());
+		document.getElementsByClassName('nav-user-items')[0].classList.remove('active');
 	};
 
 	return (
@@ -74,7 +75,14 @@ const Header = () => {
 							</div>
 							<ul className='nav-user-items'>
 								<li className='nav-user-item'>
-									<Link to='/profile'>
+									<Link
+										to='/profile'
+										onClick={(e) => {
+											document
+												.getElementsByClassName('nav-user-items')[0]
+												.classList.remove('active');
+										}}
+									>
 										<i class='far fa-id-badge'></i>
 									</Link>
 								</li>
