@@ -91,6 +91,27 @@ const Header = () => {
 										<i class='fas fa-sign-out-alt'></i>
 									</Link>
 								</li>
+								{userInfo && userInfo.isAdmin ? (
+									<>
+										<li className='nav-user-item'>
+											<Link to='/admin/userlist'>
+												<i class='fas fa-users'></i>
+											</Link>
+										</li>
+										<li className='nav-user-item'>
+											<Link to='/admin/userlist'>
+												<i class='fas fa-cart-arrow-down'></i>
+											</Link>
+										</li>
+										<li className='nav-user-item'>
+											<Link to='/admin/userlist'>
+												<i class='fas fa-chart-bar'></i>
+											</Link>
+										</li>
+									</>
+								) : (
+									<></>
+								)}
 							</ul>
 						</li>
 					) : (
