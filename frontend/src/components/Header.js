@@ -14,6 +14,10 @@ const Header = () => {
 		document.getElementsByClassName('nav-user-items')[0].classList.remove('active');
 	};
 
+	const removeActiveItem = () => {
+		document.getElementsByClassName('nav-user-items')[0].classList.remove('active');
+	};
+
 	return (
 		<header className='header'>
 			<div className='header-wrapper'>
@@ -75,14 +79,7 @@ const Header = () => {
 							</div>
 							<ul className='nav-user-items'>
 								<li className='nav-user-item'>
-									<Link
-										to='/profile'
-										onClick={(e) => {
-											document
-												.getElementsByClassName('nav-user-items')[0]
-												.classList.remove('active');
-										}}
-									>
+									<Link to='/profile' onClick={removeActiveItem}>
 										<i class='far fa-id-badge'></i>
 									</Link>
 								</li>
@@ -94,17 +91,17 @@ const Header = () => {
 								{userInfo && userInfo.isAdmin ? (
 									<>
 										<li className='nav-user-item'>
-											<Link to='/admin/userlist'>
+											<Link to='/admin/userlist' onClick={removeActiveItem}>
 												<i class='fas fa-users'></i>
 											</Link>
 										</li>
 										<li className='nav-user-item'>
-											<Link to='/admin/userlist'>
+											<Link to='/admin/userlist' onClick={removeActiveItem}>
 												<i class='fas fa-cart-arrow-down'></i>
 											</Link>
 										</li>
 										<li className='nav-user-item'>
-											<Link to='/admin/userlist'>
+											<Link to='/admin/userlist' onClick={removeActiveItem}>
 												<i class='fas fa-chart-bar'></i>
 											</Link>
 										</li>
