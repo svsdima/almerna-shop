@@ -96,12 +96,12 @@ const Header = () => {
 											</Link>
 										</li>
 										<li className='nav-user-item'>
-											<Link to='/admin/userlist' onClick={removeActiveItem}>
+											<Link to='/admin/productlist' onClick={removeActiveItem}>
 												<i class='fas fa-cart-arrow-down'></i>
 											</Link>
 										</li>
 										<li className='nav-user-item'>
-											<Link to='/admin/userlist' onClick={removeActiveItem}>
+											<Link to='/admin/orderlist' onClick={removeActiveItem}>
 												<i class='fas fa-chart-bar'></i>
 											</Link>
 										</li>
