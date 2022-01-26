@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { getUserDetails } from '../actions/userActions';
+import { getUserDetails, updateUser } from '../actions/userActions';
+import { USER_UPDATE_RESET } from '../constants/userConstants';
 import Logo from '../components/Logo';
 
 const UserEditScreen = ({ match, history }) => {
@@ -16,21 +17,30 @@ const UserEditScreen = ({ match, history }) => {
 	const dispatch = useDispatch();
 
 	const userDetails = useSelector((state) => state.userDetails);
-
 	const { loading, error, user } = userDetails;
 
+	const userUpdate = useSelector((state) => state.userUpdate);
+	const { loading: lodaingUpdate, error: errorUpdate, success: successUpdate } = userUpdate;
+
 	useEffect(() => {
-		if (!user.name || user._id !== userId) {
-			dispatch(getUserDetails(userId));
+		if (successUpdate) {
+			dispatch({ type: USER_UPDATE_RESET });
+			history.push('/admin/userlist');
 		} else {
-			setName(user.name);
-			setEmail(user.email);
-			setIsAdmin(user.isAdmin);
+			if (!user.name || user._id !== userId) {
+				dispatch(getUserDetails(userId));
+			} else {
+				setName(user.name);
+				setEmail(user.email);
+				setIsAdmin(user.isAdmin);
+			}
 		}
-	}, [user, dispatch, userId]);
+	}, [user, dispatch, userId, history, successUpdate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+
+		dispatch(updateUser({ _id: userId, name, email, isAdmin }));
 	};
 	return (
 		<>
@@ -49,6 +59,8 @@ const UserEditScreen = ({ match, history }) => {
 						<div className='login-screen-wrapper'>
 							<Logo />
 							<h1 className='title'>Edit User</h1>
+							{lodaingUpdate && <Loader />}
+							{errorUpdate && <Message>{errorUpdate}</Message>}
 							<form className='form' onSubmit={submitHandler}>
 								<div className='form-item'>
 									<label className='form-label'>Name:</label>
