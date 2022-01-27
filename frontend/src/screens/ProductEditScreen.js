@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { listProductDetails, listProducts } from '../actions/productActions';
+import { listProductDetails, updateProduct } from '../actions/productActions';
 import Logo from '../components/Logo';
+import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 
 const ProductEditScreen = ({ match, history }) => {
 	const productId = match.params.id;
 
 	const [name, setName] = useState('');
 	const [price, setPrice] = useState(0);
-	const [image, setImage] = useState('');
+	const [images, setImages] = useState('');
 	const [description, setDescription] = useState('');
 	const [item, setItem] = useState('');
 	const [mainImage, setMainImage] = useState('');
@@ -27,29 +28,53 @@ const ProductEditScreen = ({ match, history }) => {
 	const productDetails = useSelector((state) => state.productDetails);
 	const { loading, error, product } = productDetails;
 
+	const productUpdate = useSelector((state) => state.productUpdate);
+	const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = productUpdate;
+
 	useEffect(() => {
-		if (!product.name || product._id !== productId) {
-			dispatch(listProductDetails(productId));
+		if (successUpdate) {
+			dispatch({ type: PRODUCT_UPDATE_RESET });
+			history.push('/admin/productlist');
 		} else {
-			setName(product.name);
-			setPrice(product.price);
-			setImage(product.image);
-			setDescription(product.description);
-			setItem(product.item);
-			setMainImage(product.mainImage);
-			setCategory(product.category);
-			setHeight(product.height);
-			setSize(product.size);
-			setMaterials(product.materials);
-			setNumReviews(product.numReviews);
-			setCountInStock(product.countInStock);
+			if (!product.name || product._id !== productId) {
+				dispatch(listProductDetails(productId));
+			} else {
+				setName(product.name);
+				setPrice(product.price);
+				setImages(product.images);
+				setDescription(product.description);
+				setItem(product.item);
+				setMainImage(product.mainImage);
+				setCategory(product.category);
+				setHeight(product.height);
+				setSize(product.size);
+				setMaterials(product.materials);
+				setNumReviews(product.numReviews);
+				setCountInStock(product.countInStock);
+			}
 		}
-	}, [product, dispatch, productId, history]);
+	}, [product, dispatch, productId, history, successUpdate]);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 
-		// UPDATE PRODUCT
+		dispatch(
+			updateProduct({
+				_id: productId,
+				name,
+				price,
+				images,
+				description,
+				item,
+				mainImage,
+				category,
+				height,
+				size,
+				materials,
+				numReviews,
+				countInStock,
+			})
+		);
 	};
 	return (
 		<>
@@ -68,6 +93,8 @@ const ProductEditScreen = ({ match, history }) => {
 						<div className='login-screen-wrapper'>
 							<Logo />
 							<h1 className='title'>Edit Product</h1>
+							{loadingUpdate && <Loader />}
+							{errorUpdate && <Message>{errorUpdate}</Message>}
 							<form className='form' onSubmit={submitHandler}>
 								<div className='form-item'>
 									<label className='form-label'>Name:</label>
@@ -94,9 +121,9 @@ const ProductEditScreen = ({ match, history }) => {
 									<input
 										type='text'
 										placeholder='Enter Image'
-										value={image}
+										value={images}
 										className='form-input'
-										onChange={(e) => setImage(e.target.value)}
+										onChange={(e) => setImages(e.target.value)}
 									/>
 								</div>
 								<div className='form-item'>
