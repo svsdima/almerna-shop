@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveShippingAdress } from '../actions/cartActions';
+import { saveShippingAddress } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 
 const ShippingScreen = ({ history }) => {
@@ -16,7 +16,7 @@ const ShippingScreen = ({ history }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		dispatch(saveShippingAdress({ address, city, postalCode, country }));
+		dispatch(saveShippingAddress({ address, city, postalCode, country }));
 		history.push('/payment');
 	};
 
@@ -35,6 +35,7 @@ const ShippingScreen = ({ history }) => {
 							className='form-input'
 							required
 							onChange={(e) => setAddress(e.target.value)}
+							id='address'
 						/>
 					</div>
 					<div className='form-item'>
@@ -45,6 +46,8 @@ const ShippingScreen = ({ history }) => {
 							value={city}
 							className='form-input'
 							onChange={(e) => setCity(e.target.value)}
+							required
+							id='city'
 						/>
 					</div>
 					<div className='form-item'>
@@ -55,6 +58,8 @@ const ShippingScreen = ({ history }) => {
 							value={postalCode}
 							className='form-input'
 							onChange={(e) => setPostalCode(e.target.value)}
+							required
+							id='postalCode'
 						/>
 					</div>
 					<div className='form-item'>
@@ -65,6 +70,8 @@ const ShippingScreen = ({ history }) => {
 							value={country}
 							className='form-input'
 							onChange={(e) => setCountry(e.target.value)}
+							required
+							id='country'
 						/>
 					</div>
 					<button className='btn' type='submit'>
