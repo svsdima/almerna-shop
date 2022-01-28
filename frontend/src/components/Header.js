@@ -80,29 +80,29 @@ const Header = () => {
 							<ul className='nav-user-items'>
 								<li className='nav-user-item'>
 									<Link to='/profile' onClick={removeActiveItem}>
-										<i class='far fa-id-badge'></i>
+										<i className='far fa-id-badge'></i>
 									</Link>
 								</li>
 								<li className='nav-user-item'>
 									<Link to='/' onClick={logoutHandler}>
-										<i class='fas fa-sign-out-alt'></i>
+										<i className='fas fa-sign-out-alt'></i>
 									</Link>
 								</li>
 								{userInfo && userInfo.isAdmin ? (
 									<>
 										<li className='nav-user-item'>
 											<Link to='/admin/userlist' onClick={removeActiveItem}>
-												<i class='fas fa-users'></i>
+												<i className='fas fa-users'></i>
 											</Link>
 										</li>
 										<li className='nav-user-item'>
 											<Link to='/admin/productlist' onClick={removeActiveItem}>
-												<i class='fas fa-cart-arrow-down'></i>
+												<i className='fas fa-cart-arrow-down'></i>
 											</Link>
 										</li>
 										<li className='nav-user-item'>
 											<Link to='/admin/orderlist' onClick={removeActiveItem}>
-												<i class='fas fa-chart-bar'></i>
+												<i className='fas fa-chart-bar'></i>
 											</Link>
 										</li>
 									</>

@@ -19,14 +19,14 @@ const OrderScreen = ({ match }) => {
 	const { order, loading, error } = orderDetails;
 
 	const orderPay = useSelector((state) => state.orderPay);
-	const { success: successPay, loading: loadingPay } = orderPay;
+	const { loading: loadingPay, success: successPay } = orderPay;
 
 	if (!loading) {
+		// Calculate Prices
 		const addDecimals = (num) => {
 			return (Math.round(num * 100) / 100).toFixed(2);
 		};
 
-		// Calculate Prices
 		order.itemsPrice = addDecimals(
 			order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
 		);

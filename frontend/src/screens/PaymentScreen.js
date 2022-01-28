@@ -30,7 +30,7 @@ const PaymentScreen = ({ history }) => {
 					<div className='checkbox'>
 						<input
 							type='radio'
-							class='checkbox-input'
+							className='checkbox-input'
 							id='PayPal'
 							name='paymentMethod'
 							value='PayPal'
@@ -39,7 +39,7 @@ const PaymentScreen = ({ history }) => {
 						/>
 						<label
 							htmlFor='formAgreement'
-							class='checkbox-label'
+							className='checkbox-label'
 							id='PayPal'
 							name='paymentMethod'
 							value='PayPal'
@@ -47,26 +47,6 @@ const PaymentScreen = ({ history }) => {
 							Paypal or Credit Card
 						</label>
 					</div>
-					{/* <div className='checkbox'>
-						<input
-							type='radio'
-							class='checkbox-input'
-							id='Stripe'
-							name='paymentMethod'
-							value='Stripe'
-							onChange={(e) => setPaymentMethod(e.target.value)}
-						/>
-						<label
-							htmlFor='formAgreement'
-							class='checkbox-label'
-							id='Stripe'
-							name='paymentMethod'
-							value='Stripe'
-						>
-							Stripe
-						</label>
-					</div> */}
-
 					<button className='btn' type='submit'>
 						Continue
 					</button>
