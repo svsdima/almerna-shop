@@ -172,3 +172,34 @@ h2 {
 		z-index: 5;
 	}
 }
+.paginate {
+	display: grid;
+	grid-template-columns: repeat(10, 20px);
+	justify-items: flex-start;
+	align-items: center;
+	gap: 10px 20px;
+	margin-top: 20px;
+	&-item {
+		border: 1px solid $red;
+		border-radius: 20%;
+		span {
+			font-family: History Pro;
+			letter-spacing: 0.01em;
+			line-height: 32px;
+			font-size: 16px;
+			padding: 5px 10px;
+			transition: $transition;
+		}
+		transition: $transition;
+		&.active {
+			border: 1px solid $red;
+			background-color: $main-100;
+			span {
+				color: white;
+			}
+		}
+		&:hover {
+			background-color: $red;
+		}
+	}
+}

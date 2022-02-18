@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import Paginate from '../components/Paginate';
 import { listProducts, deleteProduct, createProduct } from '../actions/productActions';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 
 const ProductListScreen = ({ history, match }) => {
+	const pageNumber = match.params.pageNumber || 1;
+
 	const dispatch = useDispatch();
 
 	const productList = useSelector((state) => state.productList);
-	const { loading, error, products } = productList;
+	const { loading, error, products, pages, page } = productList;
 
 	const productDelete = useSelector((state) => state.productDelete);
 	const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete;
@@ -36,9 +39,9 @@ const ProductListScreen = ({ history, match }) => {
 		if (successCreate) {
 			history.push(`/admin/product/${createdProduct._id}/edit`);
 		} else {
-			dispatch(listProducts());
+			dispatch(listProducts('', pageNumber));
 		}
-	}, [dispatch, history, userInfo, successDelete, successCreate, createdProduct]);
+	}, [dispatch, history, userInfo, successDelete, successCreate, createdProduct, pageNumber]);
 
 	const deleteHandler = (id) => {
 		if (window.confirm('Are you sure?')) {
@@ -72,39 +75,42 @@ const ProductListScreen = ({ history, match }) => {
 				) : error ? (
 					<Message>${error}</Message>
 				) : (
-					<table>
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>NAME</th>
-								<th>PRICE</th>
-								<th>CATEGORY</th>
-								<th>COUNT IN STOCK</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							{products.map((product) => (
-								<tr key={product._id}>
-									<td>{product._id}</td>
-									<td>{product.name}</td>
-									<td>${product.price}</td>
-									<td>{product.category}</td>
-									<td>{product.countInStock}</td>
-									<td>
-										<Link to={`/admin/product/${product._id}/edit`}>
-											<button className='btn'>
-												<i className='fas fa-edit' style={{ color: 'white' }} />
-											</button>
-										</Link>
-										<button className='btn' onClick={() => deleteHandler(product._id)}>
-											<i className='fas fa-trash' style={{ color: 'white' }} />
-										</button>
-									</td>
+					<>
+						<table>
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>NAME</th>
+									<th>PRICE</th>
+									<th>CATEGORY</th>
+									<th>COUNT IN STOCK</th>
+									<th></th>
 								</tr>
-							))}
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								{products.map((product) => (
+									<tr key={product._id}>
+										<td>{product._id}</td>
+										<td>{product.name}</td>
+										<td>${product.price}</td>
+										<td>{product.category}</td>
+										<td>{product.countInStock}</td>
+										<td>
+											<Link to={`/admin/product/${product._id}/edit`}>
+												<button className='btn'>
+													<i className='fas fa-edit' style={{ color: 'white' }} />
+												</button>
+											</Link>
+											<button className='btn' onClick={() => deleteHandler(product._id)}>
+												<i className='fas fa-trash' style={{ color: 'white' }} />
+											</button>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+						<Paginate pages={pages} page={page} isAdmin={true} />
+					</>
 				)}
 			</div>
 		</div>
