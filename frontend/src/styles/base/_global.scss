@@ -131,5 +131,44 @@ h2 {
 		color: $main-60;
 	}
 }
-.payment-screen {
+.search {
+	position: absolute;
+	left: 50%;
+	// top: 50%;
+	top: -50%;
+	transform: translateX(-50%);
+	visibility: hidden;
+	z-index: -1;
+	opacity: 0;
+	transition: $transition;
+	padding: 30px 10px 10px 10px;
+	border: 1px solid $main-100;
+	min-width: 500px;
+	&-input {
+		font-size: 16px;
+		line-height: 160%;
+		letter-spacing: 0.08em;
+	}
+	&-btn {
+		cursor: pointer;
+		font-size: 16px;
+	}
+	&-close {
+		font-size: 18px;
+		position: absolute;
+		cursor: pointer;
+		right: 2%;
+		top: 0;
+	}
+	&-form {
+		display: grid;
+		grid-template-columns: 5fr 1fr;
+		column-gap: 5px;
+	}
+	&.active {
+		top: 60%;
+		visibility: visible;
+		opacity: 1;
+		z-index: 5;
+	}
 }

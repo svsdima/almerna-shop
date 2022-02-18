@@ -1,7 +1,9 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../actions/userActions';
+import { SearchBox } from './SearchBox';
 
 const Header = () => {
 	const dispatch = useDispatch();
@@ -18,8 +20,12 @@ const Header = () => {
 		document.getElementsByClassName('nav-user-items')[0].classList.remove('active');
 	};
 
+	const toggleSearchInput = () => {
+		document.getElementById('search').classList.toggle('active');
+	};
+
 	return (
-		<header className='header'>
+		<header className='header' id='header'>
 			<div className='header-wrapper'>
 				<Link to='/' className='logo'>
 					<img src='/img/logo.png' alt='logo' />
@@ -57,10 +63,8 @@ const Header = () => {
 					</li>
 				</ul>
 				<ul className='nav'>
-					<li>
-						<Link to='#' className='nav-link'>
-							<i className='fas fa-search'></i>
-						</Link>
+					<li className='nav-search'>
+						<i className='fas fa-search' onClick={toggleSearchInput}></i>
 					</li>
 					<li>
 						<Link to='#' className='nav-link'>
@@ -125,6 +129,7 @@ const Header = () => {
 						</Link>
 					</li>
 				</ul>
+				<Route render={({ history }) => <SearchBox history={history} />} />
 			</div>
 		</header>
 	);

@@ -18,12 +18,13 @@ import UserEditScreen from './screens/UserEditScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
+import { closeSearchBox } from './components/SearchBox';
 
 const App = () => {
 	return (
 		<Router>
 			<Header />
-			<main className='main'>
+			<main className='main' id='main' onClick={(e) => closeSearchBox(e)}>
 				<Route path='/login' component={LoginScreen} />
 				<Route path='/order/:id' component={OrderScreen} />
 				<Route path='/shipping' component={ShippingScreen} />
@@ -38,6 +39,7 @@ const App = () => {
 				<Route path='/admin/productlist' component={ProductListScreen} />
 				<Route path='/admin/product/:id/edit' component={ProductEditScreen} />
 				<Route path='/admin/orderlist' component={OrderListScreen} />
+				<Route path='/search/:keyword' component={HomeScreen} />
 				<Route path='/' component={HomeScreen} exact />
 			</main>
 			<Footer />
