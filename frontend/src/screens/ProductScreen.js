@@ -6,6 +6,7 @@ import { listProductDetails, createReviewProduct } from '../actions/productActio
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
+import Meta from '../components/Meta';
 
 const ProductScreen = ({ history, match }) => {
 	const [qty, setQty] = useState(1);
@@ -65,6 +66,7 @@ const ProductScreen = ({ history, match }) => {
 			) : (
 				<section className={`product-screen`}>
 					<div className='container'>
+						<Meta title={product.name} />
 						<div className='product-screen-nav'>
 							<Link to='/'>Home</Link> / <Link to='/catalog'>Catalog</Link> /<span> Lingerie</span>
 						</div>
