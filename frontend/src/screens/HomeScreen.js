@@ -5,6 +5,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
 import { listProducts } from '../actions/productActions';
+import ProductCarousel from '../components/ProductCarousel';
 
 const HomeScreen = ({ match }) => {
 	const keyword = match.params.keyword;
@@ -23,6 +24,7 @@ const HomeScreen = ({ match }) => {
 	return (
 		<section className='home-screen'>
 			<div className='container'>
+				{!keyword && <ProductCarousel />}
 				<h1 className='title'>
 					Shop Our <span>Trending</span> Products
 				</h1>
