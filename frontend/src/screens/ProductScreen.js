@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 import Meta from '../components/Meta';
+import { addToFavorite, removeFromFavorite } from '../actions/cartActions';
 
 const ProductScreen = ({ history, match }) => {
 	const [qty, setQty] = useState(1);
@@ -14,6 +15,7 @@ const ProductScreen = ({ history, match }) => {
 	const [bandSize, setBandSize] = useState('');
 	const [rating, setRating] = useState(0);
 	const [comment, setComment] = useState('');
+	const [favorite, setFavorite] = useState(false);
 
 	const dispatch = useDispatch();
 
@@ -35,10 +37,20 @@ const ProductScreen = ({ history, match }) => {
 		}
 
 		dispatch(listProductDetails(match.params.id));
-	}, [dispatch, match, successProductReview]);
+	}, [dispatch, match, favorite, product.id, successProductReview]);
 
 	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?qty=${qty}?size=${bandSize}?color=${color}`);
+	};
+
+	const toggleFavoriteHandler = (id) => {
+		if (id === match.params.id) {
+			console.log('match');
+		}
+		if (id) {
+			console.log(id);
+		}
+		history.push(`/favorite/${match.params.id}`);
 	};
 
 	const submitHandler = (e) => {
@@ -55,6 +67,10 @@ const ProductScreen = ({ history, match }) => {
 	const toggleActiveClass = (e) => {
 		e.target.classList.toggle('active');
 		e.target.nextElementSibling.classList.toggle('active');
+	};
+
+	const removeFromCartHandler = (id) => {
+		dispatch(removeFromFavorite(id));
 	};
 
 	return (
@@ -151,14 +167,22 @@ const ProductScreen = ({ history, match }) => {
 												</select>
 											)}
 										</div>
-										<button
-											className='btn'
-											type='button'
-											disabled={product.countInStock === 0 || color === '' || bandSize === ''}
-											onClick={addToCartHandler}
-										>
-											Add to bag by &#8364;{(product.price * qty).toFixed(2)}
-										</button>
+										<div className='product-screen-buttons'>
+											<button
+												className='btn'
+												type='button'
+												disabled={product.countInStock === 0 || color === '' || bandSize === ''}
+												onClick={addToCartHandler}
+											>
+												Add to bag by &#8364;{(product.price * qty).toFixed(2)}
+											</button>
+											<button
+												className='product-screen-favorite'
+												onClick={() => toggleFavoriteHandler(product.id)}
+											>
+												<i className='fa fa-heart'></i>
+											</button>
+										</div>
 										<div className='product-screen-delivery'>
 											Доставка 1-2 дня <Link to='#'>Изменить регион</Link>
 										</div>

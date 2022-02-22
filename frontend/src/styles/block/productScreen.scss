@@ -41,6 +41,27 @@
 		text-decoration-line: line-through;
 		color: $silver-80;
 	}
+	&-buttons {
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		align-items: center;
+		justify-items: flex-start;
+		column-gap: 40px;
+	}
+	&-favorite {
+		margin: 40px 0 20px 0;
+		cursor: pointer;
+		padding: 10px;
+		&:disabled {
+			i {
+				color: $main-100;
+			}
+		}
+		i {
+			font-size: 24px;
+			color: $red;
+		}
+	}
 	&-title {
 		font-family: 'History Pro';
 		font-size: 36px;

@@ -27,9 +27,14 @@ const HomeScreen = ({ match }) => {
 		<section className='home-screen'>
 			<div className='container'>
 				<Meta />
-				{!keyword ? (
+				{/* {!keyword ? (
 					<ProductCarousel />
 				) : (
+					<Link to='/' className='btn'>
+						Go Back
+					</Link>
+				)} */}
+				{keyword && (
 					<Link to='/' className='btn'>
 						Go Back
 					</Link>

@@ -67,7 +67,7 @@ const Header = () => {
 						<i className='fas fa-search' onClick={toggleSearchInput}></i>
 					</li>
 					<li>
-						<Link to='#' className='nav-link'>
+						<Link to='/favorite' className='nav-link'>
 							<i className='far fa-heart'></i>
 						</Link>
 					</li>

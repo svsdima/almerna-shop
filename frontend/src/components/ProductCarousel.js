@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import Loader from './Loader';
 import Message from './Message';
 import { listTopProducts } from '../actions/productActions';
-
+// Swiper
+import { Navigation, Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
@@ -17,7 +18,7 @@ const ProductCarousel = () => {
 	const { loading, error, products } = productTopRated;
 
 	useEffect(() => {
-		dispatch(listTopProducts);
+		dispatch(listTopProducts());
 	}, [dispatch]);
 
 	return loading ? (
@@ -25,14 +26,23 @@ const ProductCarousel = () => {
 	) : error ? (
 		<Message>{error}</Message>
 	) : (
-		<Swiper spaceBetween={50} slidesPerView={3}>
+		<Swiper
+			modules={[Scrollbar, Pagination, Navigation]}
+			spaceBetween={50}
+			slidesPerView={1}
+			pagination={{ clickable: true }}
+			scrollbar={{ draggable: true, hide: true }}
+			className='product-carousel'
+		>
 			{products.map((product) => {
 				console.log(product);
 				return (
-					<SwiperSlide key={product._id}>
+					<SwiperSlide key={product._id} className='product-carousel-slide'>
 						<Link to={`/product/${product._id}`}>
-							<img src={product.mainImage} alt={product.name} />\
-							<h2>
+							<div className='product-carousel-img'>
+								<img src={product.mainImage} alt={product.name} />\
+							</div>
+							<h2 className='product-carousel-title'>
 								{product.name} (${product.price})
 							</h2>
 						</Link>
