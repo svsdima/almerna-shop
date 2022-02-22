@@ -52,14 +52,14 @@
 		margin: 40px 0 20px 0;
 		cursor: pointer;
 		padding: 10px;
-		&:disabled {
+		&.active {
 			i {
-				color: $main-100;
+				color: $red;
 			}
 		}
 		i {
 			font-size: 24px;
-			color: $red;
+			color: $main-100;
 		}
 	}
 	&-title {

@@ -10,7 +10,6 @@ const FavoriteScreen = ({ match, location, history }) => {
 	const dispatch = useDispatch();
 
 	const favorite = useSelector((state) => state.favorite);
-
 	const { favoriteItems } = favorite;
 
 	useEffect(() => {
@@ -26,8 +25,6 @@ const FavoriteScreen = ({ match, location, history }) => {
 	const checkoutHandler = () => {
 		history.push('/login?redirect=shipping');
 	};
-	console.log(favoriteItems);
-	console.log(favorite);
 
 	return (
 		<section className='cart-screen'>
@@ -46,16 +43,23 @@ const FavoriteScreen = ({ match, location, history }) => {
 				) : (
 					<div className='favorite-screen-wrapper'>
 						<div className='favorite-screen-items'>
-							<h2 className='cart-screen-title'>My Wishlist</h2>
-							<div className='cart-screen-items-list'>
+							<h2 className='title'>My Wishlist</h2>
+							<div className='product-list'>
 								{favoriteItems.map((product) => (
 									<div className='product-item' key={product._id}>
+										<Link
+											to='#'
+											className='product-favorite'
+											onClick={() => removeFromCartHandler(product.product)}
+										>
+											<i className='fa fa-heart'></i>
+										</Link>
 										<div className='product-card'>
 											<Link to={`/product/${product.product}`} className='product-img'>
 												<img src={product.image} alt={product.name}></img>
 											</Link>
 										</div>
-										<Link to={`/product/${product._id}`} className='product-title'>
+										<Link to={`/product/${product.product}`} className='product-title'>
 											{product.name}
 										</Link>
 										<div className='product-info'>

@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 import Meta from '../components/Meta';
-import { addToFavorite, removeFromFavorite } from '../actions/cartActions';
+import { removeFromFavorite } from '../actions/cartActions';
 
 const ProductScreen = ({ history, match }) => {
 	const [qty, setQty] = useState(1);
@@ -15,7 +15,6 @@ const ProductScreen = ({ history, match }) => {
 	const [bandSize, setBandSize] = useState('');
 	const [rating, setRating] = useState(0);
 	const [comment, setComment] = useState('');
-	const [favorite, setFavorite] = useState(false);
 
 	const dispatch = useDispatch();
 
@@ -37,19 +36,13 @@ const ProductScreen = ({ history, match }) => {
 		}
 
 		dispatch(listProductDetails(match.params.id));
-	}, [dispatch, match, favorite, product.id, successProductReview]);
+	}, [dispatch, match, successProductReview]);
 
 	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?qty=${qty}?size=${bandSize}?color=${color}`);
 	};
 
-	const toggleFavoriteHandler = (id) => {
-		if (id === match.params.id) {
-			console.log('match');
-		}
-		if (id) {
-			console.log(id);
-		}
+	const addToFavoriteHandler = () => {
 		history.push(`/favorite/${match.params.id}`);
 	};
 
@@ -178,7 +171,9 @@ const ProductScreen = ({ history, match }) => {
 											</button>
 											<button
 												className='product-screen-favorite'
-												onClick={() => toggleFavoriteHandler(product.id)}
+												onClick={addToFavoriteHandler}
+												id='btn-favorite'
+												onChange={(e) => console.log(e.target)}
 											>
 												<i className='fa fa-heart'></i>
 											</button>
