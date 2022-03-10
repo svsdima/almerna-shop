@@ -1,0 +1,32 @@
+.info {
+	padding: 90px 0;
+	&-list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: center;
+		justify-items: center;
+		column-gap: 100px;
+	}
+	&-item {
+		display: grid;
+		grid-template-columns: 1fr 5fr;
+		justify-items: center;
+		align-items: center;
+		column-gap: 30px;
+		row-gap: 10px;
+		i {
+			font-size: 30px;
+		}
+	}
+	&-title {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 22px;
+		color: $main-100;
+	}
+	&-descr {
+		font-size: 14px;
+		line-height: 20px;
+		color: $main-80;
+	}
+}

@@ -11,6 +11,9 @@
 			margin-bottom: 10px;
 		}
 	}
+	&-list {
+		padding: 0;
+	}
 	&-item {
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;

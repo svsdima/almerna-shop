@@ -91,7 +91,7 @@ const products = [
 		countInStock: false,
 		rating: 4.5,
 		numReviews: 4,
-		new: true,
+		new: false,
 	},
 	{
 		name: 'Stefi Push Up BH schwarz',
@@ -180,7 +180,7 @@ const products = [
 		countInStock: 3,
 		rating: 3.5,
 		numReviews: 4,
-		new: true,
+		new: false,
 	},
 	{
 		name: 'Stefi Push Up BH schwarz',
@@ -268,6 +268,270 @@ const products = [
 		materials: '96% полиами, 4% эластан',
 		countInStock: 3,
 		rating: 4.5,
+		numReviews: 4,
+		new: false,
+	},
+	{
+		name: 'Stefi Push Up BH schwarz',
+		mainImage: '/img/models/7/1.jpg',
+		images: ['/img/models/7/1.jpg'],
+		item: '/img/bras/1.png',
+		description:
+			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
+		category: 'body',
+		height: 1.72,
+		size: 'S',
+		price: 55.0,
+		colors: ['black', 'silver', 'white'],
+		bandSizes: [
+			{
+				size: 30,
+				countInStock: true,
+			},
+			{
+				size: 32,
+				countInStock: false,
+			},
+			{
+				size: 34,
+				countInStock: true,
+			},
+			{
+				size: 36,
+				countInStock: false,
+			},
+			{
+				size: 38,
+				countInStock: true,
+			},
+			{
+				size: 40,
+				countInStock: false,
+			},
+		],
+		materials: '96% полиами, 4% эластан',
+		countInStock: 5,
+		rating: 3.5,
+		numReviews: 4,
+		new: false,
+	},
+	{
+		name: 'Stefi Push Up BH schwarz',
+		mainImage: '/img/models/8/1.jpg',
+		images: ['/img/models/8/1.jpg'],
+		item: '/img/bras/1.png',
+		description:
+			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
+		category: 'body',
+		height: 1.72,
+		size: 'S',
+		price: 69.0,
+		colors: ['black', 'silver'],
+		bandSizes: [
+			{
+				size: 30,
+				countInStock: true,
+			},
+			{
+				size: 32,
+				countInStock: true,
+			},
+			{
+				size: 34,
+				countInStock: true,
+			},
+			{
+				size: 36,
+				countInStock: true,
+			},
+			{
+				size: 38,
+				countInStock: true,
+			},
+			{
+				size: 40,
+				countInStock: true,
+			},
+		],
+		materials: '96% полиами, 4% эластан',
+		countInStock: 3,
+		rating: 4.5,
+		numReviews: 4,
+		new: false,
+	},
+	{
+		name: 'Stefi Push Up BH schwarz',
+		mainImage: '/img/models/9/1.jpg',
+		images: ['/img/models/9/1.jpg'],
+		item: '/img/bras/1.png',
+		description:
+			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
+		category: 'body',
+		height: 1.72,
+		size: 'S',
+		price: 69.0,
+		colors: ['black', 'silver'],
+		bandSizes: [
+			{
+				size: 30,
+				countInStock: true,
+			},
+			{
+				size: 32,
+				countInStock: true,
+			},
+			{
+				size: 34,
+				countInStock: true,
+			},
+			{
+				size: 36,
+				countInStock: true,
+			},
+			{
+				size: 38,
+				countInStock: true,
+			},
+			{
+				size: 40,
+				countInStock: true,
+			},
+		],
+		materials: '96% полиами, 4% эластан',
+		countInStock: 3,
+		rating: 4.5,
+		numReviews: 4,
+		new: false,
+	},
+	{
+		name: 'Stefi Push Up BH schwarz',
+		mainImage: '/img/models/10/1.jpg',
+		images: ['/img/models/10/1.jpg'],
+		item: '/img/bras/1.png',
+		description:
+			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
+		category: 'body',
+		height: 1.72,
+		size: 'S',
+		price: 69.0,
+		colors: ['black', 'silver'],
+		bandSizes: [
+			{
+				size: 30,
+				countInStock: true,
+			},
+			{
+				size: 32,
+				countInStock: true,
+			},
+			{
+				size: 34,
+				countInStock: true,
+			},
+			{
+				size: 36,
+				countInStock: true,
+			},
+			{
+				size: 38,
+				countInStock: true,
+			},
+			{
+				size: 40,
+				countInStock: true,
+			},
+		],
+		materials: '96% полиами, 4% эластан',
+		countInStock: 3,
+		rating: 4.5,
+		numReviews: 4,
+		new: false,
+	},
+	{
+		name: 'Stefi Push Up BH schwarz',
+		mainImage: '/img/models/11/1.jpg',
+		images: ['/img/models/11/1.jpg'],
+		item: '/img/bras/1.png',
+		description:
+			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
+		category: 'body',
+		height: 1.72,
+		size: 'S',
+		price: 69.0,
+		colors: ['black', 'silver'],
+		bandSizes: [
+			{
+				size: 30,
+				countInStock: true,
+			},
+			{
+				size: 32,
+				countInStock: true,
+			},
+			{
+				size: 34,
+				countInStock: true,
+			},
+			{
+				size: 36,
+				countInStock: true,
+			},
+			{
+				size: 38,
+				countInStock: true,
+			},
+			{
+				size: 40,
+				countInStock: true,
+			},
+		],
+		materials: '96% полиами, 4% эластан',
+		countInStock: 3,
+		rating: 4.5,
+		numReviews: 4,
+		new: false,
+	},
+	{
+		name: 'Stefi Push Up BH schwarz',
+		mainImage: '/img/models/12/1.jpg',
+		images: ['/img/models/12/1.jpg'],
+		item: '/img/bras/1.png',
+		description:
+			'Life is a moment SUGAR CORAL — это роскошная серия. Эта дамская пижама в красивом коралловом цвете выполнена из мягкой ткани. В этой пижаме Вы будете чувствовать себя супер комфортно!',
+		category: 'body',
+		height: 1.72,
+		size: 'S',
+		price: 69.0,
+		colors: ['black', 'silver', 'white'],
+		bandSizes: [
+			{
+				size: 30,
+				countInStock: true,
+			},
+			{
+				size: 32,
+				countInStock: true,
+			},
+			{
+				size: 34,
+				countInStock: true,
+			},
+			{
+				size: 36,
+				countInStock: true,
+			},
+			{
+				size: 38,
+				countInStock: true,
+			},
+			{
+				size: 40,
+				countInStock: true,
+			},
+		],
+		materials: '96% полиами, 4% эластан',
+		countInStock: 7,
+		rating: 5,
 		numReviews: 4,
 		new: true,
 	},

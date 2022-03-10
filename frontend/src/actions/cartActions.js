@@ -66,6 +66,7 @@ export const addToFavorite = (id) => async (dispatch, getState) => {
 			name: data.name,
 			price: data.price,
 			image: data.mainImage,
+			new: data.new,
 		},
 	});
 

@@ -20,6 +20,7 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import { closeSearchBox } from './components/SearchBox';
 import FavoriteScreen from './screens/FavoriteScreen';
+import CatalogScreen from './screens/CatalogScreen';
 
 const App = () => {
 	return (
@@ -34,6 +35,8 @@ const App = () => {
 				<Route path='/register' component={RegisterScreen} />
 				<Route path='/profile' component={ProfileScreen} />
 				<Route path='/product/:id' component={ProductScreen} />
+				<Route path='/catalog/' component={CatalogScreen} exact />
+				<Route path='/catalog/page/:pageNumber' component={CatalogScreen} />
 				<Route path='/cart/:id?' component={CartScreen} />
 				<Route path='/favorite/:id?' component={FavoriteScreen} />
 				<Route path='/admin/userlist' component={UserListScreen} />
@@ -42,9 +45,8 @@ const App = () => {
 				<Route path='/admin/productlist/:pageNumber' component={ProductListScreen} exact />
 				<Route path='/admin/product/:id/edit' component={ProductEditScreen} />
 				<Route path='/admin/orderlist' component={OrderListScreen} />
-				<Route path='/search/:keyword' component={HomeScreen} exact />
-				<Route path='/page/:pageNumber' component={HomeScreen} />
-				<Route path='/search/:keyword/page/:pageNumber' component={HomeScreen} />
+				<Route path='/search/:keyword' component={CatalogScreen} exact />
+				<Route path='/search/:keyword/page/:pageNumber' component={CatalogScreen} />
 				<Route path='/' component={HomeScreen} exact />
 			</main>
 			<Footer />

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorite, removeFromFavorite } from '../actions/cartActions';
 import { Link } from 'react-router-dom';
 import Rating from '../components/Rating';
+import NewLingerine from '../components/NewLingerine';
 
 const FavoriteScreen = ({ match, location, history }) => {
 	const productId = match.params.id;
@@ -26,6 +27,8 @@ const FavoriteScreen = ({ match, location, history }) => {
 		history.push('/login?redirect=shipping');
 	};
 
+	console.log(favoriteItems);
+
 	return (
 		<section className='cart-screen'>
 			<div className='container'>
@@ -43,10 +46,13 @@ const FavoriteScreen = ({ match, location, history }) => {
 				) : (
 					<div className='favorite-screen-wrapper'>
 						<div className='favorite-screen-items'>
-							<h2 className='title'>My Wishlist</h2>
+							<h2 className='title'>
+								My Wishlist <sup>{favoriteItems.length}</sup>
+							</h2>
 							<div className='product-list'>
 								{favoriteItems.map((product) => (
 									<div className='product-item' key={product._id}>
+										<NewLingerine product={product} />
 										<Link
 											to='#'
 											className='product-favorite'

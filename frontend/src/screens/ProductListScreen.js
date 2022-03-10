@@ -60,7 +60,7 @@ const ProductListScreen = ({ history, match }) => {
 					<div>
 						<h1 className='title'>Products</h1>
 					</div>
-					<div>
+					<div className='btn-create'>
 						<button className='btn' onClick={createProductHandler}>
 							<i className='fas fa-plus' style={{ color: 'white' }} /> Create Product
 						</button>
@@ -76,14 +76,14 @@ const ProductListScreen = ({ history, match }) => {
 					<Message>${error}</Message>
 				) : (
 					<>
-						<table>
+						<table className='product-table'>
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>NAME</th>
-									<th>PRICE</th>
-									<th>CATEGORY</th>
-									<th>COUNT IN STOCK</th>
+									<th>Name</th>
+									<th>Price</th>
+									<th>Category</th>
+									<th>Count In Stock</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -97,11 +97,13 @@ const ProductListScreen = ({ history, match }) => {
 										<td>{product.countInStock}</td>
 										<td>
 											<Link to={`/admin/product/${product._id}/edit`}>
-												<button className='btn'>
+												<button className='btn btn-edit'>
 													<i className='fas fa-edit' style={{ color: 'white' }} />
 												</button>
 											</Link>
-											<button className='btn' onClick={() => deleteHandler(product._id)}>
+										</td>
+										<td>
+											<button className='btn btn-remove' onClick={() => deleteHandler(product._id)}>
 												<i className='fas fa-trash' style={{ color: 'white' }} />
 											</button>
 										</td>

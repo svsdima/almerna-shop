@@ -24,13 +24,28 @@ const Header = () => {
 		document.getElementById('search').classList.toggle('active');
 	};
 
+	const burgerMenu = (e) => {
+		const mobileNav = document.getElementById('mobile-nav');
+		mobileNav.classList.toggle('active');
+	};
+
+	const closeBurgerMenu = (e) => {
+		const mobileNav = document.getElementById('mobile-nav');
+		const mobileNavs = document.querySelectorAll('#mobile-nav .nav-link');
+		mobileNavs.forEach((nav) => {
+			if (mobileNav.classList.contains('active') && e.target === nav) {
+				mobileNav.classList.remove('active');
+			}
+		});
+	};
+
 	return (
 		<header className='header' id='header'>
 			<div className='header-wrapper'>
 				<Link to='/' className='logo'>
 					<img src='/img/logo.png' alt='logo' />
 				</Link>
-				<ul className='nav'>
+				<ul className='nav' id='menu-nav'>
 					<li>
 						<Link to='#' className='nav-link'>
 							NEW ARRIVALS
@@ -42,8 +57,8 @@ const Header = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to='#' className='nav-link'>
-							LINGERIE
+						<Link to='/catalog' className='nav-link active'>
+							LINGERInE
 						</Link>
 					</li>
 					<li>
@@ -61,13 +76,13 @@ const Header = () => {
 							COLLECTIONS
 						</Link>
 					</li>
-				</ul>
-				<ul className='nav'>
+					{/* </ul> */}
+					{/* <ul className='nav'> */}
 					<li className='nav-search'>
 						<i className='fas fa-search' onClick={toggleSearchInput}></i>
 					</li>
 					<li>
-						<Link to='/favorite' className='nav-link'>
+						<Link to='/favorite' className='nav-link active'>
 							<i className='far fa-heart'></i>
 						</Link>
 					</li>
@@ -124,13 +139,66 @@ const Header = () => {
 					)}
 
 					<li>
-						<Link to='/cart' className='nav-link'>
+						<Link to='/cart' className='nav-link active'>
 							<i className='fas fa-shopping-cart'></i>
 						</Link>
 					</li>
 				</ul>
-				<Route render={({ history }) => <SearchBox history={history} />} />
 			</div>
+			<div className='header-wrapper-mobile' id='mobile'>
+				<div className='burger' onClick={burgerMenu}>
+					<span className='burger-line'></span>
+				</div>
+				<li className='nav-search'>
+					<i className='fas fa-search' onClick={toggleSearchInput}></i>
+				</li>
+				<Link to='/' className='logo'>
+					<img src='/img/logo-text.png' alt='logo-text' />
+				</Link>
+				<li>
+					<Link to='/favorite' className='nav-link active'>
+						<i className='far fa-heart'></i>
+					</Link>
+				</li>
+				<li>
+					<Link to='/cart' className='nav-link active'>
+						<i className='fas fa-shopping-cart'></i>
+					</Link>
+				</li>
+				<ul className='nav nav-mobile' id='mobile-nav' onClick={closeBurgerMenu}>
+					<li>
+						<Link to='#' className='nav-link'>
+							NEW ARRIVALS
+						</Link>
+					</li>
+					<li>
+						<Link to='#' className='nav-link'>
+							PLUS SIZE
+						</Link>
+					</li>
+					<li>
+						<Link to='/catalog' className='nav-link active'>
+							LINGERInE
+						</Link>
+					</li>
+					<li>
+						<Link to='#' className='nav-link'>
+							NIGHTWEAR
+						</Link>
+					</li>
+					<li>
+						<Link to='#' className='nav-link'>
+							GIFTS
+						</Link>
+					</li>
+					<li>
+						<Link to='#' className='nav-link'>
+							COLLECTIONS
+						</Link>
+					</li>
+				</ul>
+			</div>
+			<Route render={({ history }) => <SearchBox history={history} />} />
 		</header>
 	);
 };

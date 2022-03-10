@@ -40,13 +40,13 @@ const UserListScreen = ({ history }) => {
 				) : error ? (
 					<Message>${error}</Message>
 				) : (
-					<table>
+					<table className='user-table'>
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>NAME</th>
-								<th>EMAIL</th>
-								<th>ADMIN</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Admin</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -67,11 +67,13 @@ const UserListScreen = ({ history }) => {
 									</td>
 									<td>
 										<Link to={`/admin/user/${user._id}/edit`}>
-											<button className='btn'>
+											<button className='btn btn-edit'>
 												<i className='fas fa-edit' style={{ color: 'white' }} />
 											</button>
 										</Link>
-										<button className='btn' onClick={() => deleteHandler(user._id)}>
+									</td>
+									<td>
+										<button className='btn btn-remove' onClick={() => deleteHandler(user._id)}>
 											<i className='fas fa-trash' style={{ color: 'white' }} />
 										</button>
 									</td>

@@ -23,15 +23,19 @@ $transition: all 0.3s ease;
 @import './base/fonts';
 @import './base/global';
 @import './base/spinner';
+@import './base/swiper';
 
 @import './block/header';
 @import './block/footer';
 @import './block/products';
 @import './block/productScreen';
 @import './block/productCarousel';
+@import './block/productDetails';
 @import './block/cartScreen';
 @import './block/profileScreen';
 @import './block/orderScreen';
 @import './block/placeOrderScreen';
+@import './block/perfect';
+@import './block/info';
 
 @import './base/media';

@@ -1,0 +1,25 @@
+.product-details {
+	margin: 150px 0;
+	&-title {
+		display: grid;
+		justify-items: center;
+		align-items: center;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-areas:
+			'product product product'
+			'logo details details';
+		span {
+			font-family: 'History Pro';
+			font-size: 104px;
+			line-height: 130px;
+			text-align: center;
+			letter-spacing: 0.01em;
+		}
+	}
+	&-product {
+		grid-area: product;
+	}
+	&-details {
+		grid-area: details;
+	}
+}

@@ -8,6 +8,7 @@ import Message from '../components/Message';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 import Meta from '../components/Meta';
 import { removeFromFavorite } from '../actions/cartActions';
+import ProductDetails from '../components/ProductDetails';
 
 const ProductScreen = ({ history, match }) => {
 	const [qty, setQty] = useState(1);
@@ -83,7 +84,7 @@ const ProductScreen = ({ history, match }) => {
 							<div className='product-screen-wrapper'>
 								<div className='product-screen-up'>
 									<div className='product-screen-images'>
-										<div className='product-screen-images-list'></div>
+										{/* <div className='product-screen-images-list'></div> */}
 										<div className='product-screen-mainImg'>
 											<img src={product.mainImage} alt={product.name} />
 										</div>
@@ -271,6 +272,7 @@ const ProductScreen = ({ history, match }) => {
 								</div>
 							</div>
 						</div>
+						{/* <ProductDetails /> */}
 					</div>
 				</section>
 			)}

@@ -1,8 +1,9 @@
 .footer {
-	padding: 60px 0 0 0;
+	padding: 60px 0 40px 0;
 	position: relative;
 	.logo {
 		align-items: flex-start;
+		width: 150px;
 	}
 	&-top {
 		display: grid;
@@ -24,6 +25,7 @@
 		}
 	}
 	&-nav {
+		padding: 0;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr) 2fr;
 	}

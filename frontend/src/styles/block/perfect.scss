@@ -1,0 +1,28 @@
+.perfect {
+	margin: 80px 0;
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		'left right'
+		'bottom bottom';
+	&-left,
+	&-right,
+	&-bottom {
+		min-height: 700px;
+		background: center (top / cover) no-repeat;
+		display: grid;
+		justify-items: center;
+		align-items: center;
+	}
+
+	&-left {
+		grid-area: left;
+	}
+	&-right {
+		grid-area: right;
+	}
+	&-bottom {
+		grid-area: bottom;
+	}
+}

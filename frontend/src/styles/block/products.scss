@@ -53,12 +53,19 @@
 			font-size: 20px;
 			color: $white;
 		}
-		&:hover {
-			background-color: $white;
-			i {
-				font-size: 20px;
-				color: $main-100;
-			}
+	}
+	&-new {
+		position: absolute;
+		top: 5%;
+		left: 0;
+		padding: 12px 16px;
+		background-color: $white;
+		span {
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 16px;
+
+			color: $main-100;
 		}
 	}
 }

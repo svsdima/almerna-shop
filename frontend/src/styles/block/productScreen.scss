@@ -22,6 +22,7 @@
 		grid-column-end: 3;
 		grid-row-start: 3;
 		grid-row-end: 4;
+		align-items: center;
 	}
 	&-prices {
 		display: grid;
@@ -262,5 +263,37 @@
 		&.active {
 			display: block;
 		}
+	}
+}
+#rating,
+#comment {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	margin: 10px 0 20px 0;
+	position: relative;
+	label {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: 0.01em;
+	}
+}
+#rating {
+	select {
+		min-height: 40px;
+	}
+	select,
+	option {
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: 0.01em;
+	}
+}
+#comment {
+	textarea {
+		resize: vertical;
+		width: 100%;
+		min-height: 100px;
 	}
 }
